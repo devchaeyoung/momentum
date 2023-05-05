@@ -1,5 +1,12 @@
-const amIFat = null; //아무것도 없는 것으로 채워진것
-const amISlinm = undefined;
-let variable = "value";
-let something;
-console.log(something, amIFat); //아무값도 받지 못한 경우 undefined로 출력값이 나온다
+//데이터타입을 그룹으로 묶기위한 좋은 방법, 나열하기 위한 방법
+const daysOfWeek = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
+
+//dayOfweek의 1번째 element를 알려주세요!
+
+// Get Item from Array
+console.log(daysOfWeek[0]);
+
+// Add one more day to the array
+daysOfWeek.push("happyDay");
+
+console.log(daysOfWeek[7]);
