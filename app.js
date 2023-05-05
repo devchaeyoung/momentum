@@ -1,11 +1,5 @@
-const a = 5; //const는 바꾸지 않는 값 constant  숫자
-const b = 2;
-let myName = "chaeyoung"; //let은 뭔가 새로운걸 생성하고 싶을때 씀. 그 후에 나오는 것은 변수명 앞에 let을 달지 않아도됨
-
-console.log(a + b);
-console.log(a * b);
-console.log(a / b);
-console.log("hello " + myName);
-
-myName = "jin chaeyoung";
-console.log("your new name is " + myName);
+const amIFat = null; //아무것도 없는 것으로 채워진것
+const amISlinm = undefined;
+let variable = "value";
+let something;
+console.log(something, amIFat); //아무값도 받지 못한 경우 undefined로 출력값이 나온다
