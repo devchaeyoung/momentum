@@ -1,19 +1,12 @@
 console.log("자세한 공부기록이 궁금하다면 github.com/devchaeyoung/momentum/commits의 히스토리를 확인해주세요!");
+console.log("'today I Learned'가 궁금하다면 'velog.com/@xiu_8'를 확인해주세요 :)");
 
-function sayHello(nameOfPerson, age) {
-  console.log("Hello! My name is " + nameOfPerson + ". and I'm " + age);
-}
+const player = {
+  name: "chaeyoung",
+  sayHello: function (otherPersonsName) {
+    console.log("Hello! " + otherPersonsName + ". Nice to Meet you :)");
+  },
+};
 
-sayHello("lula", 18);
-sayHello("minah", 23);
-sayHello("jinah", 24);
-sayHello("jinwoo", 21);
-
-function plus(a, b) {
-  console.log(a + b);
-}
-function divide(a, b) {
-  console.log(a / b);
-}
-plus(3 + 50);
-divide(100 / 3);
+player.sayHello("Taeho");
+player.sayHello("chayoung");
