@@ -10,3 +10,5 @@ const player = {
 
 player.sayHello("Taeho");
 player.sayHello("chayoung");
+
+console.log(console);
