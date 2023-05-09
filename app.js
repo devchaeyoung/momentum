@@ -13,8 +13,36 @@ function minusFive(potato) {
 minusFive(3, 5, 6, 86, 42, 5, 7, 18);
 // have so many argument But this function is affected only one argument in first.
 
-//과목 갯수별로 평균을 낼 수 있는 계산기 만들기
 const calculator = {
+  add: function (a, b) {
+    console.log(a + b);
+  },
+  minus: function (a, b) {
+    console.log(a - b);
+  },
+  multiply: function (a, b) {
+    console.log(a * b);
+  },
+  divide: function (a, b) {
+    console.log(a / b);
+  },
+  powerOf: function (a, b) {
+    console.log(a ** b);
+  },
+  rest: function (a, b) {
+    console.log(a % b);
+  },
+};
+
+calculator.add(1, 3);
+calculator.minus(4, 1);
+calculator.multiply(56, 2);
+calculator.divide(2048, 2);
+calculator.powerOf(2, 11);
+calculator.rest(3.15, 2);
+
+//과목 갯수별로 평균을 낼 수 있는 계산기 만들기
+const calculator2 = {
   two: function (a, b) {
     console.log((a + b) / 2);
   },
@@ -30,5 +58,5 @@ const calculator = {
   },
 };
 
-calculator.two(5, 1);
+calculator2.two(5, 1);
 //calculator.과목갯수 를 입력하면 됨
