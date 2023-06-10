@@ -1,3 +1,7 @@
-const hellos = document.getElementsByClassName("hello");
+const title = document.querySelector(".hello > h1");
 
-console.log(hellos);
+function handleTitleClick() {
+  console.log("title was click!");
+}
+
+title.addEventListener("click", handleTitleClick);
