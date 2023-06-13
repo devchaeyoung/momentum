@@ -4,24 +4,6 @@ function handleTitleClick() {
   console.log("title was click!");
 }
 
-function handleMouseEnter() {
-  console.log("mouse is here!");
-  title.innerText = "Mouse is Here!";
-}
-
-function handleMouseLeave() {
-  console.log("mouse leaved");
-  title.innerText = "Mouse is gone!";
-}
-
-function handleOnCopy() {
-  alert("copy!");
-}
-
+h1.onclick = handleTitleClick;
 h1.addEventListener("click", handleTitleClick);
-
-h1.addEventListener("mouseenter", handleMouseEnter);
-
-h1.addEventListener("mouseleave", handleMouseLeave);
-
-window.addEventListener("oncopy", handleOnCopy);
+//위 두 코드는 같지만 addEventListener의 경우 removeEventListener를 사용할 수 있으므로 더 선호해서 사용하는 편이다.
