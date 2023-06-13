@@ -1,4 +1,4 @@
-const title = document.querySelector(".hello > h1");
+const h1 = document.querySelector(".hello > h1");
 
 function handleTitleClick() {
   console.log("title was click!");
@@ -14,8 +14,14 @@ function handleMouseLeave() {
   title.innerText = "Mouse is gone!";
 }
 
-title.addEventListener("click", handleTitleClick);
+function handleOnCopy() {
+  alert("copy!");
+}
 
-title.addEventListener("mouseenter", handleMouseEnter);
+h1.addEventListener("click", handleTitleClick);
 
-title.addEventListener("mouseleave", handleMouseLeave);
+h1.addEventListener("mouseenter", handleMouseEnter);
+
+h1.addEventListener("mouseleave", handleMouseLeave);
+
+window.addEventListener("oncopy", handleOnCopy);
