@@ -1,21 +1,9 @@
-function handleWindowOffline() {
-  alert("Please checking your Network :(");
+const loginForm = document.querySelector("#login-form");
+const loginInput = document.querySelector("#login-form input");
+
+function onLoginBtnClick() {
+  const username = loginInput.value;
+  console.log(username);
 }
 
-function handleWindowOnline() {
-  alert("success! :)");
-}
-window.addEventListener("offline", handleWindowOffline);
-window.addEventListener("online", handleWindowOnline);
-
-const h1 = document.querySelector(".hello > h1");
-
-function handleTextColor() {
-  if (h1.style.color === "blue") {
-    h1.style.color = "tomato";
-  } else {
-    h1.style.color = "blue";
-  }
-}
-
-h1.addEventListener("click", handleTextColor);
+loginForm.addEventListener("click", onLoginBtnClick);
