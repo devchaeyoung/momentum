@@ -8,7 +8,9 @@ function onLoginBtnClick(e) {
   console.log(loginInput.value);
 }
 
-function handleLinkClick() {
+function handleLinkClick(e) {
+  e.preventDefault(); //?? 기다렸다 작동되는데? 뭐지
+  console.log(e);
   alert("clicked!"); // alert자체가 새로고침 되는 걸 막아줌. preventDefault랑 쓸 필요 X
 }
 
