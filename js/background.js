@@ -7,3 +7,5 @@ const bgImage = document.createElement("img");
 bgImage.src = `img/${chosenImage}`;
 
 document.body.appendChild(bgImage);
+// document.body.prepend(bgImage);
+// append는 뒤에 첨부 prepend는 앞에 첨부
