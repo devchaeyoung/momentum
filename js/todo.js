@@ -3,6 +3,11 @@ const toDoInput = toDoForm.querySelector("input");
 // = document.querySelector("#todo-form input")  두번 찾을 필요 없음
 const toDoList = document.querySelector("#todo-list");
 
+const toDos = [];
+function saveToDos() {
+  localStorage.setItem("todos", JSON.stringify(toDos)); // DevTools >> Application으로 가면 저장된 배열 확인 가능
+}
+
 /**목록을 삭제하는 함수
  * 화살표함수로 바로 실행하는게 좋을 지 함수로 빼서 사용해주는 지 좋을지 고민하기
  * React에서 따로 compoenet로 써도 좋을 거 같기도..?
@@ -49,8 +54,10 @@ function handleToDoSubmit(e) {
   // console.log(toDoInput.value);
   toDoInput.value = "";
   // checkListToDo(newToDo); // 체크박스로 나타낼 경우
+  toDos.push(newToDo);
   paintToDo(newToDo);
   // console.log(newToDo, toDoInput.value);
+  saveToDos();
 }
 
 toDoForm.addEventListener("submit", handleToDoSubmit);
