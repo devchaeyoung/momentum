@@ -3,9 +3,11 @@ const toDoInput = toDoForm.querySelector("input");
 // = document.querySelector("#todo-form input")  두번 찾을 필요 없음
 const toDoList = document.querySelector("#todo-list");
 
-const toDos = [];
+const TODOS_KEY = "todos";
+
+let toDos = [];
 function saveToDos() {
-  localStorage.setItem("todos", JSON.stringify(toDos)); // DevTools >> Application으로 가면 저장된 배열 확인 가능
+  localStorage.setItem(TODOS_KEY, JSON.stringify(newToDoOBJ)); // DevTools >> Application으로 가면 저장된 배열 확인 가능
 }
 
 /**목록을 삭제하는 함수
@@ -23,9 +25,9 @@ function deleteToDo(e) {
 function paintToDo(newToDo) {
   console.log(`I will paint ${newToDo}`);
   const li = document.createElement("li");
-
+  li.id = newToDo.id;
   const span = document.createElement("span");
-  span.innerText = newToDo;
+  span.innerText = newToDo.text;
 
   const delButton = document.createElement("button");
   delButton.innerText = "❎";
@@ -36,28 +38,28 @@ function paintToDo(newToDo) {
   toDoList.appendChild(li);
 }
 
-/**
- * 해야할 일 목록을 체크박스로 나타냅니다.
- * @param {*} newToDo 새로운 할 일 목록
- */
-function checkListToDo(newToDo) {
-  console.log(`I will paint ${newToDo}`);
-  const checkbox = document.createElement("input");
-  checkbox.type = "checkbox";
-  checkbox.innerText = newToDo;
-  toDoList.appendChild(checkbox);
-}
-
 function handleToDoSubmit(e) {
   e.preventDefault();
   const newToDo = toDoInput.value;
-  // console.log(toDoInput.value);
+
   toDoInput.value = "";
-  // checkListToDo(newToDo); // 체크박스로 나타낼 경우
-  toDos.push(newToDo);
-  paintToDo(newToDo);
-  // console.log(newToDo, toDoInput.value);
+
+  const newToDoOBJ = {
+    id: Date.now,
+    text: newToDo,
+  };
+
+  toDos.push(newToDoOBJ);
+  paintToDo(newToDoOBJ);
   saveToDos();
 }
 
 toDoForm.addEventListener("submit", handleToDoSubmit);
+
+const savedToDos = localStorage.getItem(TODOS_KEY);
+console.log(savedToDos);
+if (savedToDos !== null) {
+  const parsedToDos = JSON.parse(savedToDos);
+  toDos = parsedToDos;
+  parsedToDos.forEach(paintToDo);
+}
