@@ -5,9 +5,11 @@ const toDoList = document.querySelector("#todo-list");
 
 const TODOS_KEY = "todos";
 
+/**localStorage에 저장 중인 DB */
 let toDos = [];
+
 function saveToDos() {
-  localStorage.setItem(TODOS_KEY, JSON.stringify(newToDoOBJ)); // DevTools >> Application으로 가면 저장된 배열 확인 가능
+  localStorage.setItem(TODOS_KEY, JSON.stringify(toDos)); // DevTools >> Application으로 가면 저장된 배열 확인 가능
 }
 
 /**목록을 삭제하는 함수
@@ -17,15 +19,19 @@ function saveToDos() {
 function deleteToDo(e) {
   // console을 통해 삭제할 target을 찾아서 지울 수 있다.
   const li = e.target.parentElement;
-  li.remove;
+  toDos = toDos.filter(e => e.id !== parseInt(li.id));
+  li.remove();
+  saveToDos();
+
+  console.log(li.id);
 
   // console.log(e); // event가 일어난 자리를 path를 통해 확인 가능!
   // console.dir(e.target); // event가 일어난 target의 parent를 확인 가능!
 }
 function paintToDo(newToDo) {
-  console.log(`I will paint ${newToDo}`);
   const li = document.createElement("li");
   li.id = newToDo.id;
+
   const span = document.createElement("span");
   span.innerText = newToDo.text;
 
@@ -41,11 +47,10 @@ function paintToDo(newToDo) {
 function handleToDoSubmit(e) {
   e.preventDefault();
   const newToDo = toDoInput.value;
-
   toDoInput.value = "";
 
   const newToDoOBJ = {
-    id: Date.now,
+    id: Date.now(),
     text: newToDo,
   };
 
@@ -58,6 +63,7 @@ toDoForm.addEventListener("submit", handleToDoSubmit);
 
 const savedToDos = localStorage.getItem(TODOS_KEY);
 console.log(savedToDos);
+
 if (savedToDos !== null) {
   const parsedToDos = JSON.parse(savedToDos);
   toDos = parsedToDos;
